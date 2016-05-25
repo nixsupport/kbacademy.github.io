@@ -16,8 +16,6 @@ for everyRegion in availRegions:
     client=boto3.client('ec2',region_name=everyRegion)
     print "Connecting with region %s" %(everyRegion)
     for status in client.describe_instance_status(IncludeAllInstances=True)['InstanceStatuses']:
-        if any(status):
-            print status
-        else:
-            print "No Instance running in Region %s" % (everyRegion)
+        print status
 
+#Assignment: If the dictionary 'status' is empty, then print the message "No Instance Running", else print the status of the instance.
